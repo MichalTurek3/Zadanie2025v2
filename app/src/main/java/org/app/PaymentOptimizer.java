@@ -10,10 +10,17 @@ import java.util.Map;
 import java.util.Objects;
 
 public class PaymentOptimizer {
+
     private final List<Order> orders;
+
     private final HashMap<String, PaymentMethod> methodMap;
+
     private final HashMap<String, BigDecimal> usage = new HashMap<>();
+
+    /// Using constant values as fields
+
     private final String PAYMENT_POINTS_TEN_PERCENT = "0.1";
+
     private final String PAYMENT_ALL_POINTS = "100";
 
     public PaymentOptimizer(List<Order> orders, List<PaymentMethod> methods) {
@@ -27,6 +34,8 @@ public class PaymentOptimizer {
         }
     }
 
+    /// Main method to solve the problem
+
     public HashMap<String, BigDecimal> optimizePayments() {
         try {
             for (Order order : orders) {
@@ -39,6 +48,10 @@ public class PaymentOptimizer {
         }
         return usage;
     }
+
+    /// The key to good quality Java code is optimization, using helper methods :)
+
+    ////////////////////////////////// Helper methods //////////////////////////////////////////////////
 
     private boolean tryBestFullDiscount(Order order) {
 
